@@ -8,3 +8,10 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
+
+namespace :vcr do
+  task :refresh do
+    FileUtils.rm_f('test/vcr/vps_up.yml')
+    Rake::Task['test'].invoke
+  end
+end

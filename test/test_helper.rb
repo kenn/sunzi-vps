@@ -5,20 +5,26 @@ require 'minitest/autorun'
 
 require 'webmock/minitest'
 
+GemRoot = Pathname.new(__FILE__).dirname.parent
+
 require 'vcr'
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr'
   c.hook_into :webmock
+  c.filter_sensitive_data('<API_KEY>') { YAML.load(GemRoot.join('test/project/linode/linode.yml').read)['api_key'] }
 end
 
-GemRoot = Pathname.new(__FILE__).dirname.parent
+class Object
+  alias_method :exit_without_throw, :exit
 
-class ::Object
   def exit(*args)
-    # No-op
+    throw :exit
+  rescue UncaughtThrowError
+    # Occurs at the end of test run itself
+    exit_without_throw
   end
 
   def abort(*args)
-    # No-op
+    throw :abort
   end
 end

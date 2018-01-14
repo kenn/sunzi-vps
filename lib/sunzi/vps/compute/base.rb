@@ -7,7 +7,7 @@ module Sunzi
         delegate_to_thor :empty_directory, :template, :create_file, :remove_file, :say
 
         def up
-          if config.fqdn.zone == 'example.com'
+          if config.api_key == 'your_api_key'
             abort_with "You must have your own settings in #{@provider}.yml"
           end
 
@@ -68,16 +68,12 @@ module Sunzi
 
       private
 
-        def provider_config_path
-          Pathname.new "#{@provider}/#{@provider}.yml"
-        end
-
         def instance_config_path
           Pathname.new "#{@provider}/instances/#{@name}.yml"
         end
 
         def config
-          @config ||= YAML.load(provider_config_path.read).to_hashugar
+          @config ||= YAML.load(File.read("#{@provider}/#{@provider}.yml")).to_hashugar
         end
 
         def dns

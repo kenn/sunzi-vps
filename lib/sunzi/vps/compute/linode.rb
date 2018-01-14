@@ -118,8 +118,8 @@ module Sunzi
           label = :"#{key}_#{label_method}"
 
           # Filters
-          if options[:filter] and @config[options[:filter]]
-            result = result.select{|i| i.label.match Regexp.new(@config[options[:filter]], Regexp::IGNORECASE) }
+          if options[:filter] and config[options[:filter]]
+            result = result.select{|i| i.label.match Regexp.new(config[options[:filter]], Regexp::IGNORECASE) }
           end
 
           result.each{|i| say "#{i.send(id)}: #{i.send(label_method)}" }

@@ -1,0 +1,207 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.linode.com/
+    body:
+      encoding: UTF-8
+      string: api_key=<API_KEY>&api_action=avail.linodeplans&api_responseFormat=json
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Jan 2018 13:10:59 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Tiger Blood
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"ACTION":"avail.linodeplans","DATA":[{"CORES":1,"XFER":1000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":5.00,"PLANID":1,"LABEL":"Linode
+        1024","DISK":20,"RAM":1024,"HOURLY":0.00750},{"CORES":1,"XFER":2000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":10.00,"PLANID":2,"LABEL":"Linode
+        2048","DISK":30,"RAM":2048,"HOURLY":0.01500},{"CORES":2,"XFER":3000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":20.00,"PLANID":3,"LABEL":"Linode
+        4096","DISK":48,"RAM":4096,"HOURLY":0.03000},{"CORES":4,"XFER":4000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":40.00,"PLANID":4,"LABEL":"Linode
+        8192","DISK":96,"RAM":8192,"HOURLY":0.06000},{"CORES":6,"XFER":8000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":80.00,"PLANID":5,"LABEL":"Linode
+        12288","DISK":192,"RAM":12288,"HOURLY":0.12000},{"CORES":8,"XFER":16000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":160.00,"PLANID":6,"LABEL":"Linode
+        24576","DISK":384,"RAM":24576,"HOURLY":0.24000},{"CORES":12,"XFER":20000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":320.00,"PLANID":7,"LABEL":"Linode
+        49152","DISK":768,"RAM":49152,"HOURLY":0.48000},{"CORES":16,"XFER":20000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":480.00,"PLANID":8,"LABEL":"Linode
+        65536","DISK":1152,"RAM":65536,"HOURLY":0.72000},{"CORES":20,"XFER":20000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":640.00,"PLANID":9,"LABEL":"Linode
+        81920","DISK":1536,"RAM":81920,"HOURLY":0.96000},{"CORES":1,"XFER":5000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":60.00,"PLANID":10,"LABEL":"Linode
+        16384","DISK":20,"RAM":16384,"HOURLY":0.09000},{"CORES":2,"XFER":6000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":120.00,"PLANID":11,"LABEL":"Linode
+        32768","DISK":40,"RAM":32768,"HOURLY":0.18000},{"CORES":4,"XFER":7000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":240.00,"PLANID":12,"LABEL":"Linode
+        61440","DISK":90,"RAM":61440,"HOURLY":0.36000},{"CORES":8,"XFER":8000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":480.00,"PLANID":13,"LABEL":"Linode
+        102400","DISK":200,"RAM":102400,"HOURLY":0.72000},{"CORES":16,"XFER":9000,"AVAIL":{"11":500,"2":500,"3":500,"4":500,"6":500,"7":500,"8":500,"9":500,"10":500},"PRICE":960.00,"PLANID":14,"LABEL":"Linode
+        204800","DISK":340,"RAM":204800,"HOURLY":1.44000}],"ERRORARRAY":[]}'
+    http_version: 
+  recorded_at: Sun, 14 Jan 2018 13:10:59 GMT
+- request:
+    method: post
+    uri: https://api.linode.com/
+    body:
+      encoding: UTF-8
+      string: api_key=<API_KEY>&api_action=avail.datacenters&api_responseFormat=json
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Jan 2018 13:10:59 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Tiger Blood
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"ACTION":"avail.datacenters","DATA":[{"LOCATION":"Dallas, TX, USA","DATACENTERID":2,"ABBR":"dallas"},{"LOCATION":"Fremont,
+        CA, USA","DATACENTERID":3,"ABBR":"fremont"},{"LOCATION":"Atlanta, GA, USA","DATACENTERID":4,"ABBR":"atlanta"},{"LOCATION":"Newark,
+        NJ, USA","DATACENTERID":6,"ABBR":"newark"},{"LOCATION":"London, England, UK","DATACENTERID":7,"ABBR":"london"},{"LOCATION":"Tokyo,
+        JP","DATACENTERID":8,"ABBR":"tokyo"},{"LOCATION":"Singapore, SG","DATACENTERID":9,"ABBR":"singapore"},{"LOCATION":"Frankfurt,
+        DE","DATACENTERID":10,"ABBR":"frankfurt"},{"LOCATION":"Tokyo 2, JP","DATACENTERID":11,"ABBR":"shinagawa1"}],"ERRORARRAY":[]}'
+    http_version: 
+  recorded_at: Sun, 14 Jan 2018 13:10:59 GMT
+- request:
+    method: post
+    uri: https://api.linode.com/
+    body:
+      encoding: UTF-8
+      string: api_key=<API_KEY>&api_action=avail.distributions&api_responseFormat=json
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Jan 2018 13:11:00 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Tiger Blood
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"ACTION":"avail.distributions","DATA":[{"CREATE_DT":"2016-06-13 16:31:34.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Arch
+        2018.01.02","DISTRIBUTIONID":148,"MINIMAGESIZE":1500,"IS64BIT":1},{"CREATE_DT":"2014-07-08
+        10:07:21.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"CentOS 7","DISTRIBUTIONID":129,"MINIMAGESIZE":1500,"IS64BIT":1},{"CREATE_DT":"2017-06-06
+        16:44:00.0","KERNELID":213,"REQUIRESPVOPSKERNEL":1,"LABEL":"CoreOS Container
+        Linux","DISTRIBUTIONID":157,"MINIMAGESIZE":5000,"IS64BIT":1},{"CREATE_DT":"2015-04-27
+        16:26:41.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Debian 8","DISTRIBUTIONID":140,"MINIMAGESIZE":1024,"IS64BIT":1},{"CREATE_DT":"2017-06-16
+        16:02:29.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Debian 9","DISTRIBUTIONID":158,"MINIMAGESIZE":1100,"IS64BIT":1},{"CREATE_DT":"2017-07-12
+        08:23:15.0","KERNELID":210,"REQUIRESPVOPSKERNEL":1,"LABEL":"Fedora 26","DISTRIBUTIONID":159,"MINIMAGESIZE":1500,"IS64BIT":1},{"CREATE_DT":"2017-12-14
+        16:06:30.0","KERNELID":210,"REQUIRESPVOPSKERNEL":1,"LABEL":"Fedora 27","DISTRIBUTIONID":163,"MINIMAGESIZE":1900,"IS64BIT":1},{"CREATE_DT":"2016-10-25
+        13:31:25.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Gentoo 2017-09-07","DISTRIBUTIONID":153,"MINIMAGESIZE":9000,"IS64BIT":1},{"CREATE_DT":"2017-07-27
+        14:03:05.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"openSUSE Leap 42.3","DISTRIBUTIONID":160,"MINIMAGESIZE":1900,"IS64BIT":1},{"CREATE_DT":"2016-10-13
+        09:14:34.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Slackware 14.2","DISTRIBUTIONID":151,"MINIMAGESIZE":6000,"IS64BIT":1},{"CREATE_DT":"2016-04-22
+        14:11:29.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Ubuntu 16.04 LTS","DISTRIBUTIONID":146,"MINIMAGESIZE":1024,"IS64BIT":1},{"CREATE_DT":"2017-04-13
+        16:00:37.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Ubuntu 17.04","DISTRIBUTIONID":156,"MINIMAGESIZE":1500,"IS64BIT":1},{"CREATE_DT":"2017-10-19
+        16:19:16.0","KERNELID":210,"REQUIRESPVOPSKERNEL":1,"LABEL":"Ubuntu 17.10","DISTRIBUTIONID":162,"MINIMAGESIZE":2250,"IS64BIT":1},{"CREATE_DT":"2014-04-28
+        15:19:34.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"CentOS 6.8","DISTRIBUTIONID":127,"MINIMAGESIZE":1024,"IS64BIT":1},{"CREATE_DT":"2014-09-24
+        13:59:32.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Debian 7","DISTRIBUTIONID":130,"MINIMAGESIZE":600,"IS64BIT":1},{"CREATE_DT":"2016-11-17
+        14:52:54.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"openSUSE Leap 42.2","DISTRIBUTIONID":154,"MINIMAGESIZE":1700,"IS64BIT":1},{"CREATE_DT":"2011-06-05
+        15:11:59.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Slackware 13.37","DISTRIBUTIONID":87,"MINIMAGESIZE":600,"IS64BIT":1},{"CREATE_DT":"2013-11-25
+        11:11:02.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Slackware 14.1","DISTRIBUTIONID":117,"MINIMAGESIZE":1000,"IS64BIT":1},{"CREATE_DT":"2014-04-17
+        15:42:07.0","KERNELID":0,"REQUIRESPVOPSKERNEL":1,"LABEL":"Ubuntu 14.04 LTS","DISTRIBUTIONID":124,"MINIMAGESIZE":1500,"IS64BIT":1}],"ERRORARRAY":[]}'
+    http_version: 
+  recorded_at: Sun, 14 Jan 2018 13:11:00 GMT
+- request:
+    method: post
+    uri: https://api.linode.com/
+    body:
+      encoding: UTF-8
+      string: api_key=<API_KEY>&api_action=avail.kernels&api_responseFormat=json
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Jan 2018 13:11:01 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Tiger Blood
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"ACTION":"avail.kernels","DATA":[{"ISKVM":1,"KERNELID":137,"LABEL":"Latest
+        32 bit (4.14.12-x86-linode111)","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":272,"LABEL":"4.14.11-x86-linode110","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":274,"LABEL":"4.14.12-x86-linode111","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":138,"LABEL":"Latest
+        64 bit (4.14.12-x86_64-linode92)","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":271,"LABEL":"4.14.11-x86_64-linode91","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":273,"LABEL":"4.14.12-x86_64-linode92","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":92,"LABEL":"pv-grub-x86_32","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":95,"LABEL":"pv-grub-x86_64","ISPVOPS":0,"ISXEN":1},{"ISKVM":1,"KERNELID":61,"LABEL":"Recovery
+        - Finnix (kernel)","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":110,"LABEL":"Latest
+        2.6 (2.6.39.1-linode34)","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":60,"LABEL":"Latest
+        Legacy (2.6.18.8-linode22)","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":81,"LABEL":"2.6.18.8-domU-linode7","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":89,"LABEL":"2.6.18.8-linode10","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":98,"LABEL":"2.6.18.8-linode16","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":103,"LABEL":"2.6.18.8-linode19","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":113,"LABEL":"2.6.18.8-linode22","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":84,"LABEL":"2.6.24.4-linode8","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":88,"LABEL":"2.6.25-linode9","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":90,"LABEL":"2.6.25.10-linode12","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":91,"LABEL":"2.6.26-linode13","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":93,"LABEL":"2.6.27.4-linode14","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":96,"LABEL":"2.6.28-linode15","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":99,"LABEL":"2.6.28.3-linode17","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":101,"LABEL":"2.6.29-linode18","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":105,"LABEL":"2.6.30.5-linode20","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":109,"LABEL":"2.6.31.5-linode21","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":115,"LABEL":"2.6.32-linode23","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":119,"LABEL":"2.6.32.12-linode25","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":123,"LABEL":"2.6.32.16-linode28","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":117,"LABEL":"2.6.33-linode24","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":120,"LABEL":"2.6.34-linode27","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":126,"LABEL":"2.6.35.7-linode29","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":127,"LABEL":"2.6.37-linode30","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":128,"LABEL":"2.6.38-linode31","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":130,"LABEL":"2.6.38.3-linode32","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":131,"LABEL":"2.6.39-linode33","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":134,"LABEL":"2.6.39.1-linode34","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":135,"LABEL":"3.0.0-linode35","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":147,"LABEL":"3.0.17-linode41","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":149,"LABEL":"3.0.18-linode43","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":139,"LABEL":"3.0.4-linode36","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":141,"LABEL":"3.0.4-linode37","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":142,"LABEL":"3.0.4-linode38","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":143,"LABEL":"3.1.0-linode39","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":148,"LABEL":"3.1.10-linode42","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":169,"LABEL":"3.10.3-x86-linode53","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":171,"LABEL":"3.11.6-x86-linode54","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":174,"LABEL":"3.12.6-x86-linode55","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":176,"LABEL":"3.12.9-x86-linode56","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":178,"LABEL":"3.13.7-x86-linode57","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":180,"LABEL":"3.14.1-x86-linode58","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":182,"LABEL":"3.14.4-x86-linode59","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":184,"LABEL":"3.14.5-x86-linode60","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":186,"LABEL":"3.14.5-x86-linode61","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":188,"LABEL":"3.15.2-x86-linode62","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":190,"LABEL":"3.15.3-x86-linode63","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":192,"LABEL":"3.15.4-x86-linode64","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":194,"LABEL":"3.16.5-x86-linode65","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":198,"LABEL":"3.16.7-x86-linode67","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":200,"LABEL":"3.18.1-x86-linode68","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":203,"LABEL":"3.18.3-x86-linode69","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":204,"LABEL":"3.18.5-x86-linode70","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":206,"LABEL":"3.19.1-x86-linode71","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":145,"LABEL":"3.2.1-linode40","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":152,"LABEL":"3.4.2-linode44","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":153,"LABEL":"3.5.2-linode45","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":156,"LABEL":"3.5.3-linode46","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":157,"LABEL":"3.6.5-linode47","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":161,"LABEL":"3.7.10-linode49","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":159,"LABEL":"3.7.5-linode48","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":163,"LABEL":"3.8.4-linode50","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":166,"LABEL":"3.9.2-x86-linode51","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":167,"LABEL":"3.9.3-x86-linode52","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":208,"LABEL":"4.0-x86-linode72","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":211,"LABEL":"4.0.1-x86-linode73","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":214,"LABEL":"4.0.2-x86-linode74","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":217,"LABEL":"4.0.4-x86-linode75","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":219,"LABEL":"4.0.5-x86-linode76","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":221,"LABEL":"4.0.5-x86-linode77","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":222,"LABEL":"4.1.0-x86-linode78","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":224,"LABEL":"4.1.5-x86-linode79","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":227,"LABEL":"4.1.5-x86-linode80","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":228,"LABEL":"4.4.0-x86-linode82","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":230,"LABEL":"4.4.4-x86-linode83","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":232,"LABEL":"4.5.0-x86-linode84","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":234,"LABEL":"4.5.3-x86-linode86","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":236,"LABEL":"4.5.5-x86-linode88","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":240,"LABEL":"4.6.5-x86-linode89","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":242,"LABEL":"4.7.0-x86-linode90","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":244,"LABEL":"4.7.3-x86-linode92","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":245,"LABEL":"4.8.1-x86-linode94","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":247,"LABEL":"4.8.3-x86-linode95","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":249,"LABEL":"4.8.4-x86-linode96","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":251,"LABEL":"4.8.6-x86-linode97","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":253,"LABEL":"4.9.0-x86-linode98","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":257,"LABEL":"4.9.15-x86-linode100","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":260,"LABEL":"4.9.33-x86-linode102","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":262,"LABEL":"4.9.36-x86-linode104","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":264,"LABEL":"4.9.50-x86-linode105","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":266,"LABEL":"4.9.56-x86-linode106","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":267,"LABEL":"4.9.64-x86-linode107","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":269,"LABEL":"4.9.68-x86-linode108","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":255,"LABEL":"4.9.7-x86-linode99","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":111,"LABEL":"Latest
+        2.6 (2.6.39.1-x86_64-linode19)","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":107,"LABEL":"Latest
+        Legacy (2.6.18.8-x86_64-linode10)","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":85,"LABEL":"2.6.16.38-x86_64-linode2","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":86,"LABEL":"2.6.18.8-x86_64-linode1","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":114,"LABEL":"2.6.18.8-x86_64-linode10","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":104,"LABEL":"2.6.18.8-x86_64-linode7","ISPVOPS":0,"ISXEN":1},{"ISKVM":0,"KERNELID":94,"LABEL":"2.6.27.4-x86_64-linode3","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":97,"LABEL":"2.6.28-x86_64-linode4","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":100,"LABEL":"2.6.28.3-x86_64-linode5","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":102,"LABEL":"2.6.29-x86_64-linode6","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":106,"LABEL":"2.6.30.5-x86_64-linode8","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":112,"LABEL":"2.6.31.5-x86_64-linode9","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":116,"LABEL":"2.6.32-x86_64-linode11","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":118,"LABEL":"2.6.32.12-x86_64-linode12","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":124,"LABEL":"2.6.32.12-x86_64-linode15","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":121,"LABEL":"2.6.34-x86_64-linode13","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":122,"LABEL":"2.6.34-x86_64-linode14","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":125,"LABEL":"2.6.35.4-x86_64-linode16","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":129,"LABEL":"2.6.38-x86_64-linode17","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":132,"LABEL":"2.6.39-x86_64-linode18","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":133,"LABEL":"2.6.39.1-x86_64-linode19","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":136,"LABEL":"3.0.0-x86_64-linode20","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":150,"LABEL":"3.0.18-x86_64-linode24
+        ","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":140,"LABEL":"3.0.4-x86_64-linode21","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":144,"LABEL":"3.1.0-x86_64-linode22","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":170,"LABEL":"3.10.3-x86_64-linode34","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":172,"LABEL":"3.11.6-x86_64-linode35","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":173,"LABEL":"3.12.6-x86_64-linode36","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":175,"LABEL":"3.12.9-x86_64-linode37","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":177,"LABEL":"3.13.7-x86_64-linode38","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":179,"LABEL":"3.14.1-x86_64-linode39","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":181,"LABEL":"3.14.4-x86_64-linode40","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":183,"LABEL":"3.14.5-x86_64-linode41","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":185,"LABEL":"3.14.5-x86_64-linode42","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":187,"LABEL":"3.15.2-x86_64-linode43","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":189,"LABEL":"3.15.3-x86_64-linode44","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":191,"LABEL":"3.15.4-x86_64-linode45","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":193,"LABEL":"3.16.5-x86_64-linode46","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":199,"LABEL":"3.16.7-x86_64-linode49","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":201,"LABEL":"3.18.1-x86_64-linode50","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":202,"LABEL":"3.18.3-x86_64-linode51","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":205,"LABEL":"3.18.5-x86_64-linode52","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":207,"LABEL":"3.19.1-x86_64-linode53","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":146,"LABEL":"3.2.1-x86_64-linode23","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":151,"LABEL":"3.4.2-x86_64-linode25","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":154,"LABEL":"3.5.2-x86_64-linode26","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":155,"LABEL":"3.5.3-x86_64-linode27","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":158,"LABEL":"3.6.5-x86_64-linode28","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":162,"LABEL":"3.7.10-x86_64-linode30","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":160,"LABEL":"3.7.5-x86_64-linode29","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":164,"LABEL":"3.8.4-x86_64-linode31","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":165,"LABEL":"3.9.2-x86_64-linode32","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":168,"LABEL":"3.9.3-x86_64-linode33","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":209,"LABEL":"4.0-x86_64-linode54","ISPVOPS":1,"ISXEN":1},{"ISKVM":0,"KERNELID":212,"LABEL":"4.0.1-x86_64-linode55","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":215,"LABEL":"4.0.2-x86_64-linode56","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":218,"LABEL":"4.0.4-x86_64-linode57","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":220,"LABEL":"4.0.5-x86_64-linode58","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":223,"LABEL":"4.1.0-x86_64-linode59
+        ","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":225,"LABEL":"4.1.5-x86_64-linode60
+        ","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":226,"LABEL":"4.1.5-x86_64-linode61","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":229,"LABEL":"4.4.0-x86_64-linode63","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":231,"LABEL":"4.4.4-x86_64-linode64","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":233,"LABEL":"4.5.0-x86_64-linode65","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":235,"LABEL":"4.5.3-x86_64-linode67","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":237,"LABEL":"4.5.5-x86_64-linode69","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":238,"LABEL":"4.6.3-x86_64-linode70","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":239,"LABEL":"4.6.5-x86_64-linode71","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":241,"LABEL":"4.7.0-x86_64-linode72","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":243,"LABEL":"4.7.3-x86_64-linode73","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":246,"LABEL":"4.8.1-x86_64-linode75","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":248,"LABEL":"4.8.3-x86_64-linode76","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":250,"LABEL":"4.8.4-x86_64-linode77","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":252,"LABEL":"4.8.6-x86_64-linode78","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":254,"LABEL":"4.9.0-x86_64-linode79","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":258,"LABEL":"4.9.15-x86_64-linode81","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":259,"LABEL":"4.9.33-x86_64-linode83","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":261,"LABEL":"4.9.36-x86_64-linode85","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":263,"LABEL":"4.9.50-x86_64-linode86","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":265,"LABEL":"4.9.56-x86_64-linode87","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":268,"LABEL":"4.9.64-x86_64-linode88","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":270,"LABEL":"4.9.68-x86_64-linode89","ISPVOPS":1,"ISXEN":1},{"ISKVM":1,"KERNELID":256,"LABEL":"4.9.7-x86_64-linode80","ISPVOPS":1,"ISXEN":1}],"ERRORARRAY":[]}'
+    http_version: 
+  recorded_at: Sun, 14 Jan 2018 13:11:01 GMT
+recorded_with: VCR 4.0.0
