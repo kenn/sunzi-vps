@@ -4,7 +4,7 @@ require 'sunzi/vps/cli'
 
 module Sunzi
   class Cli
-    desc 'vps [COMMANDS]', 'VPS related commands'
+    desc 'vps [...]', 'VPS setup/teardown commands'
     subcommand 'vps', Sunzi::Vps::Cli
   end
 end

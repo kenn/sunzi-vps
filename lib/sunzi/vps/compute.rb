@@ -5,7 +5,6 @@ require 'sunzi/vps/compute/digital_ocean'
 module Sunzi
   module Vps
     class Compute
-      include Sunzi::Utility
 
       def initialize(provider)
         @subject = case provider

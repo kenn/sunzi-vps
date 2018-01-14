@@ -4,7 +4,6 @@ require 'sunzi/vps/dns/route53'
 
 module Sunzi
   class DNS
-    include Sunzi::Utility
 
     def initialize(config, cloud)
       dns = config.dns

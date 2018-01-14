@@ -1,7 +1,6 @@
 module Sunzi
   module Vps
     class Init
-      include Sunzi::Utility
       include Sunzi::Actions::Delegate
 
       delegate_to_thor :empty_directory, :template
