@@ -7,7 +7,7 @@ module Sunzi
     include Sunzi::Utility
 
     def initialize(config, cloud)
-      dns = config['dns']
+      dns = config.dns
       @subject = case dns
       when 'linode'
         Sunzi::Vps::DNS::Linode.new(config, cloud)

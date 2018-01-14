@@ -1,9 +1,10 @@
 module Sunzi
   module Vps
     class Init
-      include Sunzi::Worker::Delegate
+      include Sunzi::Utility
+      include Sunzi::Actions::Delegate
 
-      delegate_to_worker :copy_file, :template, :get, :append_to_file
+      delegate_to_thor :empty_directory, :template
 
       def run(provider)
         config_path = "#{provider}/#{provider}.yml"
@@ -11,7 +12,7 @@ module Sunzi
 
         empty_directory "#{provider}/instances"
         template "templates/#{provider}.yml", config_path
-        exit_with "Now go ahead and edit #{provider}.yml, then run this command again!"
+        exit_with "Now go ahead and edit #{provider}.yml"
       end
     end
   end

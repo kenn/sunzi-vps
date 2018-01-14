@@ -1,11 +1,24 @@
 require 'test_helper'
 
 class Sunzi::VpsTest < Minitest::Test
-  def test_that_it_has_a_top_constant
-    refute_nil ::Sunzi::Vps
+  def setup
+    # @pwd = Dir.pwd
+    # Dir.chdir GemRoot.join('test/project')
+
+    FileUtils.rm_rf GemRoot.join('linode')
   end
 
-  def test_it_does_something_useful
-    assert false
+  def teardown
+    # Dir.chdir @pwd
+
+    FileUtils.rm_rf GemRoot.join('linode')
+  end
+
+  def test_vps_init
+    assert_output(/go ahead and edit/) do
+      Sunzi::Vps::Init.new.run('linode')
+    end
+    assert Dir.exist?('linode')
+    assert File.exist?('linode/linode.yml')
   end
 end

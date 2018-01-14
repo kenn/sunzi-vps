@@ -3,21 +3,17 @@ module Sunzi
     class Compute
       class Base
         include Sunzi::Utility
-        include Sunzi::Worker::Delegate
+        include Sunzi::Actions::Delegate
 
-        delegate_to_worker :empty_directory, :template, :create_file, :remove_file, :say
+        delegate_to_thor :empty_directory, :template, :create_file, :remove_file, :say
 
-        def initialize
-          @ui = HighLine.new
-        end
-
-        def setup
+        def up
           if config.fqdn.zone == 'example.com'
             abort_with "You must have your own settings in #{@provider}.yml"
           end
 
           # Ask environment and hostname
-          @env = ask("environment? (#{config.environments.join(' / ')}): ", limited_to: config.environments, default: 'production')
+          @env = ask("environment?", limited_to: config.environments, default: 'production')
           @host = ask('hostname? (only the first part of subdomain): ')
 
           abort_with '"label" field in linode.yml is no longer supported. rename it to "name".' if config.label
@@ -27,34 +23,34 @@ module Sunzi
 
           assign_api
           @attributes = {}
-          do_setup
+          do_up
 
           # Save instance info
           create_file instance_config_path, YAML.dump(@instance)
 
           # Register IP to DNS
-          @dns.add(@fqdn, @public_ip) if @dns
+          dns.add(@fqdn, @public_ip) if config.dns
         end
 
-        def teardown
+        def down
           names = Dir.glob("#{@provider}/instances/*.yml").map{|i| i.split('/').last.sub('.yml','') }
           abort_with "No match found with #{@provider}/instances/*.yml" if names.empty?
 
           names.each{|i| say i }
-          @name = ask('which instance?: ', limited_to: names)
+          @name = ask('which instance?', limited_to: names)
 
           @instance = YAML.load(instance_config_path.read).to_hashugar
 
           # Are you sure?
-          moveon = ask("Are you sure about deleting #{@instance.fqdn} permanently? (y/n) ", String) {|q| q.in = ['y','n']}
+          moveon = ask("Are you sure about deleting #{@instance.fqdn} permanently? (y/n)", limited_to: ['y','n'])
           exit unless moveon == 'y'
 
           # Run Linode / DigitalOcean specific tasks
           assign_api
-          do_teardown
+          do_down
 
           # Delete DNS record
-          @dns.delete @instance.send(ip_key) if @dns
+          dns.delete @instance.send(ip_key) if config.dns
 
           # Remove the instance config file
           remove_file instance_config_path
@@ -63,11 +59,11 @@ module Sunzi
         end
 
         def ask(statement, *args)
-          Sunzi.worker.shell.ask statement.color(:green).bright, *args
+          Sunzi.thor.ask statement.color(:green).bright, *args
         end
 
         def proceed?
-          moveon = ask("Are you ready to go ahead and create #{@fqdn}? (y/n) ", limited_to: ['y','n'])
+          moveon = ask("Are you ready to go ahead and create #{@fqdn}? (y/n)", limited_to: ['y','n'])
           exit unless moveon == 'y'
         end
 

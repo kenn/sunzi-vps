@@ -6,10 +6,9 @@ module Sunzi
         def initialize
           Sunzi::Dependency.load('digital_ocean')
           @provider = 'digital_ocean'
-          super
         end
 
-        def do_setup
+        def do_up
           choose(:size, @api.sizes.list.sizes)
           choose(:region, @api.regions.list.regions)
 
@@ -67,7 +66,7 @@ module Sunzi
           @attributes[:"#{key}_name"] = result.find{|i| i.id == @attributes[:"#{key}_id"] }.name
         end
 
-        def do_teardown
+        def do_down
           say 'deleting droplet...'
           @api.droplets.delete(@instance[:droplet_id])
         end

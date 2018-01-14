@@ -6,13 +6,12 @@ module Sunzi
         def initialize
           Sunzi::Dependency.load('linode')
           @provider = 'linode'
-          super
         end
 
-        def do_setup
-          @sshkey = File.read(File.expand_path(@config['root_sshkey_path'])).chomp
+        def do_up
+          @sshkey = File.read(File.expand_path(config.root_sshkey_path)).chomp
           if @sshkey.match(/\n/)
-            abort_with "RootSSHKey #{@sshkey.inspect} must not be multi-line! Check inside \"#{@config['root_sshkey_path']}\""
+            abort_with "RootSSHKey #{@sshkey.inspect} must not be multi-line! Check inside \"#{config.root_sshkey_path}\""
           end
 
           choose(:plan, @api.avail.linodeplans)
@@ -21,7 +20,7 @@ module Sunzi
           choose(:kernel, @api.avail.kernels, :filter => 'kernels_filter')
 
           # Choose swap size
-          @swap_size = ask('swap size in MB? (default: 256MB): ', default: 256).to_i
+          @swap_size = ask('swap size in MB?', default: 256).to_i
 
           # Go ahead?
           proceed?
@@ -31,7 +30,7 @@ module Sunzi
           result = @api.linode.create(
             :DatacenterID => @attributes[:datacenterid],
             :PlanID => @attributes[:planid],
-            :PaymentTerm => @config['payment_term'])
+            :PaymentTerm => config.payment_term)
           @linodeid = result.linodeid
           say "created a new instance: linodeid = #{@linodeid}"
 
@@ -40,9 +39,9 @@ module Sunzi
 
           # Update settings
           say "Updating settings..."
-          @group = @config['group'][@env]
+          @group = config.group[@env]
           settings = { :LinodeID => @linodeid, :Label => @name, :lpm_displayGroup => @group }
-          settings.update(@config['settings']) if @config['settings']
+          settings.update(config.settings) if config.settings
           @api.linode.update(settings)
 
           # Create a root disk
@@ -52,7 +51,7 @@ module Sunzi
             :DistributionID => @attributes[:distributionid],
             :Label => "#{@attributes[:distribution_label]} Image",
             :Size => @totalhd - @swap_size,
-            :rootPass => @config['root_pass'],
+            :rootPass => config.root_pass,
             :rootSSHKey => @sshkey
           )
           @root_diskid = result.diskid
@@ -124,11 +123,11 @@ module Sunzi
           end
 
           result.each{|i| say "#{i.send(id)}: #{i.send(label_method)}" }
-          @attributes[id] = ask("which #{key}?: ", limited_to: result.map(&id), default: result.first.send(id))
+          @attributes[id] = ask("which #{key}?", limited_to: result.map(&id).map(&:to_s), default: result.first.send(id).to_s).to_i
           @attributes[label] = result.find{|i| i.send(id) == @attributes[id] }.send(label_method)
         end
 
-        def do_teardown
+        def do_down
           @linode_id_hash = { :LinodeID => @instance[:linode_id] }
 
           # Shutdown first or disk deletion will fail
@@ -143,7 +142,7 @@ module Sunzi
         end
 
         def assign_api
-          @api = ::Linode.new(:api_key => @config['api_key'])
+          @api = ::Linode.new(:api_key => config.api_key)
         end
 
         def ip_key

@@ -2,6 +2,7 @@ module Sunzi
   module Vps
     class DNS
       class Linode < Base
+
         def initialize(config, cloud)
           Sunzi::Dependency.load('linode')
           @api = ::Linode.new(:api_key => (cloud == 'linode') ? config['api_key'] : config['linode']['api_key'])
@@ -21,6 +22,7 @@ module Sunzi
           abort_with "ip address #{ip} was not found on Linode DNS!" unless resource
           @api.domain.resource.delete(:DomainID => @domain.domainid, :ResourceID => resource.resourceid)
         end
+
       end
     end
   end

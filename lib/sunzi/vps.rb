@@ -1,10 +1,6 @@
-require 'highline'
-
 require 'sunzi'
 require 'sunzi/vps/dependency'
 require 'sunzi/vps/cli'
-require 'sunzi/vps/compute'
-require 'sunzi/vps/dns'
 
 module Sunzi
   class Cli
