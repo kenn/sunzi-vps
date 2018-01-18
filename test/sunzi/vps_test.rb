@@ -25,7 +25,10 @@ class Sunzi::VpsTest < Minitest::Test
       Thor::LineEditor.stub(:readline, proc { list.shift || fail('list reached at the end') }) do
         VCR.use_cassette('vps_up') do
           assert_output do
-            Sunzi::Vps::Api.new('linode').compute.up
+            api = Sunzi::Vps::Api.new('linode')
+            api.dns.stub(:verify, nil) do
+              api.compute.up
+            end
           end
         end
       end
