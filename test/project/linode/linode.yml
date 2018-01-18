@@ -25,14 +25,6 @@ group:
 distributions_filter: debian
 kernels_filter: latest 64
 
-# dns takes either "linode" or "route53"
-dns: linode
-
-# only used when route53 is chosen for DNS
-route53:
-  key: your_aws_key
-  secret: your_aws_secret
-
 # other parameters for settings.
 # settings:
 #   alert_cpu_threshold: 90

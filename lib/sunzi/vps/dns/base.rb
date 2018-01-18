@@ -5,6 +5,17 @@ module Sunzi
         include Sunzi::Actions::Delegate
 
         delegate_to_thor :say
+
+        attr_reader :api
+
+        def initialize(api)
+          @api = api
+          @zone = api.config.fqdn.zone
+        end
+
+        def client
+          api.client
+        end
       end
     end
   end

@@ -10,7 +10,7 @@ module Sunzi
         return if File.exist? config_path
 
         empty_directory "#{provider}/instances"
-        template "templates/#{provider}.yml", config_path
+        template "templates/#{provider}.yml", config_path, context: binding
         exit_with "Now go ahead and edit #{provider}.yml"
       end
     end

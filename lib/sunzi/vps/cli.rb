@@ -1,6 +1,5 @@
 require 'sunzi/vps/init'
-require 'sunzi/vps/compute'
-require 'sunzi/vps/dns'
+require 'sunzi/vps/api'
 
 module Sunzi
   module Vps
@@ -13,12 +12,14 @@ module Sunzi
 
       desc 'up [provider]', 'Set up a new instance (provider: linode, digital_ocean)'
       def up(provider)
-        Sunzi::Vps::Compute.new(provider).up
+        api = Sunzi::Vps::Api.new(provider)
+        api.compute.up
       end
 
       desc 'down [provider]', 'Tear down an existing instance (provider: linode, digital_ocean)'
       def down(provider)
-        Sunzi::Vps::Compute.new(provider).down
+        api = Sunzi::Vps::Api.new(provider)
+        api.compute.down
       end
 
     end

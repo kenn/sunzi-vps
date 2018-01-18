@@ -16,13 +16,3 @@ name:
 
 # filter out large lists by keyword
 distributions_filter: debian
-
-# DNS takes "route53" or "linode"
-# dns: route53
-
-# Credentials for DNS
-route53:
-  key: your_aws_key
-  secret: your_aws_secret
-linode:
-  api_key: your_linode_api_key

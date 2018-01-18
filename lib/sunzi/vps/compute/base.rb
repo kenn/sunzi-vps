@@ -6,9 +6,16 @@ module Sunzi
 
         delegate_to_thor :empty_directory, :template, :create_file, :remove_file, :say
 
+        attr_reader :api
+
+        def initialize(api)
+          @api = api
+          api.dns.verify # fail early if domain is not registered
+        end
+
         def up
           if config.api_key == 'your_api_key'
-            abort_with "You must have your own settings in #{@provider}.yml"
+            abort_with "You must have your own settings in #{api.provider}.yml"
           end
 
           # Ask environment and hostname
@@ -20,20 +27,21 @@ module Sunzi
           @name = config.name.send(@env).gsub(/%{host}/, @host)
           abort_with "#{@name} already exists!" if instance_config_path.exist?
 
-          assign_api
           @attributes = {}
+
+          # Run Linode / DigitalOcean specific tasks
           do_up
 
           # Save instance info
           create_file instance_config_path, YAML.dump(@instance)
 
           # Register IP to DNS
-          dns.add(@fqdn, @public_ip) if config.dns
+          api.dns.add(@fqdn, @public_ip)
         end
 
         def down
-          names = Dir.glob("#{@provider}/instances/*.yml").map{|i| i.split('/').last.sub('.yml','') }
-          abort_with "No match found with #{@provider}/instances/*.yml" if names.empty?
+          names = Dir.glob("#{api.provider}/instances/*.yml").map{|i| i.split('/').last.sub('.yml','') }
+          abort_with "No match found with #{api.provider}/instances/*.yml" if names.empty?
 
           names.each{|i| say i }
           @name = ask('which instance?', limited_to: names)
@@ -45,11 +53,10 @@ module Sunzi
           exit unless moveon == 'y'
 
           # Run Linode / DigitalOcean specific tasks
-          assign_api
           do_down
 
           # Delete DNS record
-          dns.delete @instance.send(ip_key) if config.dns
+          api.dns.delete @instance.send(ip_key)
 
           # Remove the instance config file
           remove_file instance_config_path
@@ -69,15 +76,15 @@ module Sunzi
       private
 
         def instance_config_path
-          Pathname.new "#{@provider}/instances/#{@name}.yml"
+          Pathname.new "#{api.provider}/instances/#{@name}.yml"
         end
 
         def config
-          @config ||= YAML.load(File.read("#{@provider}/#{@provider}.yml")).to_hashugar
+          api.config
         end
 
-        def dns
-          @dns ||= Sunzi::DNS.new(config, @provider) if config.dns
+        def client
+          @api.client
         end
 
       end

@@ -14,12 +14,14 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'sunzi', '>= 2.0'
-  spec.add_dependency 'hashugar'
+  spec.add_dependency 'sunzi', '~> 2.0'
+  spec.add_dependency 'hashugar', '~> 1.0'
+  spec.add_dependency 'terminal-table', '~> 1.8'
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'vcr', '~> 4.0'
   spec.add_development_dependency 'webmock', '~> 3.2'
   spec.add_development_dependency 'linode', '~> 0.7'
+  spec.add_development_dependency 'droplet_kit', '~> 2.2'
 end

@@ -1,3 +1,5 @@
+require 'terminal-table'
+
 require 'sunzi'
 require 'sunzi/vps/dependency'
 require 'sunzi/vps/cli'

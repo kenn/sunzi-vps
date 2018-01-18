@@ -3,21 +3,16 @@ module Sunzi
     class Compute
       class Linode < Base
 
-        def initialize
-          Sunzi::Dependency.load('linode')
-          @provider = 'linode'
-        end
-
         def do_up
           @sshkey = File.read(File.expand_path(config.root_sshkey_path)).chomp
           if @sshkey.match(/\n/)
             abort_with "RootSSHKey #{@sshkey.inspect} must not be multi-line! Check inside \"#{config.root_sshkey_path}\""
           end
 
-          choose(:plan, @api.avail.linodeplans)
-          choose(:datacenter, @api.avail.datacenters, :label_method => :location)
-          choose(:distribution, @api.avail.distributions, :filter => 'distributions_filter')
-          choose(:kernel, @api.avail.kernels, :filter => 'kernels_filter')
+          choose(:plan, client.avail.linodeplans)
+          choose(:datacenter, client.avail.datacenters, :label_method => :location)
+          choose(:distribution, client.avail.distributions, :filter => 'distributions_filter')
+          choose(:kernel, client.avail.kernels, :filter => 'kernels_filter')
 
           # Choose swap size
           @swap_size = ask('swap size in MB?', default: 256).to_i
@@ -27,14 +22,14 @@ module Sunzi
 
           # Create
           say "creating a new linode..."
-          result = @api.linode.create(
+          result = client.linode.create(
             :DatacenterID => @attributes[:datacenterid],
             :PlanID => @attributes[:planid],
             :PaymentTerm => config.payment_term)
           @linodeid = result.linodeid
           say "created a new instance: linodeid = #{@linodeid}"
 
-          result = @api.linode.list.select{|i| i.linodeid == @linodeid }.first
+          result = client.linode.list.select{|i| i.linodeid == @linodeid }.first
           @totalhd = result.totalhd
 
           # Update settings
@@ -42,11 +37,11 @@ module Sunzi
           @group = config.group[@env]
           settings = { :LinodeID => @linodeid, :Label => @name, :lpm_displayGroup => @group }
           settings.update(config.settings) if config.settings
-          @api.linode.update(settings)
+          client.linode.update(settings)
 
           # Create a root disk
           say "Creating a root disk..."
-          result = @api.linode.disk.createfromdistribution(
+          result = client.linode.disk.createfromdistribution(
             :LinodeID => @linodeid,
             :DistributionID => @attributes[:distributionid],
             :Label => "#{@attributes[:distribution_label]} Image",
@@ -58,7 +53,7 @@ module Sunzi
 
           # Create a swap disk
           say "Creating a swap disk..."
-          result = @api.linode.disk.create(
+          result = client.linode.disk.create(
             :LinodeID => @linodeid,
             :Label => "#{@swap_size}MB Swap Image",
             :Type => 'swap',
@@ -68,7 +63,7 @@ module Sunzi
 
           # Create a config profiile
           say "Creating a config profile..."
-          result = @api.linode.config.create(
+          result = client.linode.config.create(
             :LinodeID => @linodeid,
             :KernelID => @attributes[:kernelid],
             :Label => "#{@attributes[:distribution_label]} Profile",
@@ -78,10 +73,10 @@ module Sunzi
 
           # Add a private IP
           say "Adding a private IP..."
-          result = @api.linode.ip.list(:LinodeID => @linodeid)
+          result = client.linode.ip.list(:LinodeID => @linodeid)
           @public_ip = result.first.ipaddress
-          result = @api.linode.ip.addprivate(:LinodeID => @linodeid)
-          result = @api.linode.ip.list(:LinodeID => @linodeid).find{|i| i.ispublic == 0 }
+          result = client.linode.ip.addprivate(:LinodeID => @linodeid)
+          result = client.linode.ip.list(:LinodeID => @linodeid).find{|i| i.ispublic == 0 }
           @private_ip = result.ipaddress
 
           @instance = {
@@ -109,7 +104,7 @@ module Sunzi
 
           # Boot
           say 'Done. Booting...'
-          @api.linode.boot(:LinodeID => @linodeid)
+          client.linode.boot(:LinodeID => @linodeid)
         end
 
         def choose(key, result, options = {})
@@ -132,17 +127,13 @@ module Sunzi
 
           # Shutdown first or disk deletion will fail
           say 'shutting down...'
-          @api.linode.shutdown(@linode_id_hash)
+          client.linode.shutdown(@linode_id_hash)
           # Wait until linode.shutdown has completed
           wait_for('linode.shutdown')
 
           # Delete the instance
           say 'deleting linode...'
-          @api.linode.delete(@linode_id_hash.merge(:skipChecks => 1))
-        end
-
-        def assign_api
-          @api = ::Linode.new(:api_key => config.api_key)
+          client.linode.delete(@linode_id_hash.merge(:skipChecks => 1))
         end
 
         def ip_key
@@ -152,7 +143,7 @@ module Sunzi
         def wait_for(action)
           begin
             sleep 3
-          end until @api.linode.job.list(@linode_id_hash).find{|i| i.action == action }.host_success == 1
+          end until client.linode.job.list(@linode_id_hash).find{|i| i.action == action }.host_success == 1
         end
       end
     end
