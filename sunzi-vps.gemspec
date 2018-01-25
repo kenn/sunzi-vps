@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'sunzi-vps'
-  spec.version       = '0.1.0' # retrieve this value by: Gem.loaded_specs['sunzi'].version.to_s
+  spec.version       = '0.2.0' # retrieve this value by: Gem.loaded_specs['sunzi'].version.to_s
   spec.authors       = ['Kenn Ejima']
   spec.email         = ['kenn.ejima@gmail.com']
   spec.summary       = %q{Sunzi VPS}
@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 3.2'
   spec.add_development_dependency 'linode', '~> 0.7'
   spec.add_development_dependency 'droplet_kit', '~> 2.2'
+  spec.add_development_dependency 'vultr', '~> 0.3'
 end

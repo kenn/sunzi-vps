@@ -3,10 +3,12 @@ require 'sunzi/vps/mapping'
 require 'sunzi/vps/compute/base'
 require 'sunzi/vps/compute/linode'
 require 'sunzi/vps/compute/digital_ocean'
+require 'sunzi/vps/compute/vultr'
 
 require 'sunzi/vps/dns/base'
 require 'sunzi/vps/dns/linode'
 require 'sunzi/vps/dns/digital_ocean'
+require 'sunzi/vps/dns/vultr'
 
 module Sunzi
   module Vps
@@ -25,6 +27,9 @@ module Sunzi
             ::Linode.new(api_key: config.api_key)
           when 'digital_ocean'
             DropletKit::Client.new(access_token: config.api_key)
+          when 'vultr'
+            Vultr.api_key = config.api_key
+            Vultr
           end
         end
       end

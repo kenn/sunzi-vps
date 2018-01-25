@@ -74,7 +74,7 @@ module Sunzi
           # Add a private IP
           say "Adding a private IP..."
           result = client.linode.ip.list(:LinodeID => @linodeid)
-          @public_ip = result.first.ipaddress
+          public_ip = result.first.ipaddress
           result = client.linode.ip.addprivate(:LinodeID => @linodeid)
           result = client.linode.ip.list(:LinodeID => @linodeid).find{|i| i.ispublic == 0 }
           @private_ip = result.ipaddress
@@ -98,7 +98,7 @@ module Sunzi
             :root_diskid => @root_diskid,
             :swap_diskid => @swap_diskid,
             :config_id => @config_id,
-            :public_ip => @public_ip,
+            :public_ip => public_ip,
             :private_ip => @private_ip,
           }
 
@@ -134,10 +134,6 @@ module Sunzi
           # Delete the instance
           say 'deleting linode...'
           client.linode.delete(@linode_id_hash.merge(:skipChecks => 1))
-        end
-
-        def ip_key
-          :public_ip
         end
 
         def wait_for(action)

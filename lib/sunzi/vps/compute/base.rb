@@ -36,7 +36,7 @@ module Sunzi
           create_file instance_config_path, YAML.dump(@instance)
 
           # Register IP to DNS
-          api.dns.add(@fqdn, @public_ip)
+          api.dns.add(@fqdn, @instance[:public_ip])
         end
 
         def down
@@ -56,7 +56,7 @@ module Sunzi
           do_down
 
           # Delete DNS record
-          api.dns.delete @instance.send(ip_key)
+          api.dns.delete @instance.public_ip
 
           # Remove the instance config file
           remove_file instance_config_path

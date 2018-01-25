@@ -9,6 +9,10 @@ module Sunzi
         gem: 'droplet_kit',
         klass: 'DigitalOcean',
       },
+      vultr: {
+        gem: 'vultr',
+        klass: 'Vultr',
+      },
     }.freeze
   end
 end

@@ -2,6 +2,8 @@
 
 sunzi-vps is a simple command line utility to create and/or destroy VPS instances interactively.
 
+Works with [Linode](https://www.linode.com/), [DigitalOcean](https://www.digitalocean.com/) and [Vultr](https://www.vultr.com/)
+
 It works as a plugin for [sunzi](https://github.com/kenn/sunzi), but can be used as a standalone tool.
 
 ![Sunzi for Linode](http://farm8.staticflickr.com/7210/6783789868_ab89010d5c.jpg)

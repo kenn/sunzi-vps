@@ -40,8 +40,8 @@ module Sunzi
             droplet = client.droplets.find(id: @droplet_id)
           end
 
-          @public_ip = droplet.networks.v4.first.ip_address
-          say "Done. ip address = #{@public_ip}"
+          public_ip = droplet.networks.v4.first.ip_address
+          say "Done. ip address = #{public_ip}"
 
           @instance = {
             droplet_id: @droplet_id,
@@ -49,7 +49,7 @@ module Sunzi
             host: @host,
             fqdn: @fqdn,
             name: @name,
-            ip_address: @public_ip,
+            public_ip:  public_ip,
             size:       @attributes[:size],
             region:     @attributes[:region],
             image:      @attributes[:image],
@@ -79,10 +79,6 @@ module Sunzi
         def do_down
           say 'deleting droplet...'
           client.droplets.delete(id: @instance[:droplet_id])
-        end
-
-        def ip_key
-          :ip_address
         end
       end
     end
